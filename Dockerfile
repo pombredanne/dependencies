@@ -1,6 +1,6 @@
 FROM ubuntu
 
-MAINTAINER SkyDB skydb.io
+MAINTAINER Sky Contributors skydb.io
 
 RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list && \
     echo 'deb http://archive.ubuntu.com/ubuntu precise-updates universe' >> /etc/apt/sources.list && \
@@ -14,14 +14,14 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential vim less c
 
 RUN mkdir -p /usr/local/src
 
-# golang
+# Go 1.2
 RUN cd /usr/local/src && \
     wget https://go.googlecode.com/files/go1.2.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.2.linux-amd64.tar.gz
 
 ENV PATH $PATH:/usr/local/go/bin
 
-# LMDB
+# LMDB 0.9.9
 RUN cd /usr/local/src && \
     wget https://github.com/skydb/dependencies/raw/unstable/lmdb.tar.gz && \
     tar zxvf lmdb.tar.gz && \
@@ -31,9 +31,9 @@ RUN cd /usr/local/src && \
 
 # LLVM
 RUN cd /usr/local/src && \
-    wget http://llvm.org/releases/3.2/llvm-3.2.src.tar.gz && \
-    tar zxvf llvm-3.2.src.tar.gz && \
-    cd llvm-3.2.src && \
+    wget http://llvm.org/releases/3.4/llvm-3.4.src.tar.gz && \
+    tar zxvf llvm-3.4.src.tar.gz && \
+    cd llvm-3.4 && \
     ./configure --enable-optimized && \
     REQUIRES_RTTI=1 make install
 
