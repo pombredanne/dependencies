@@ -34,6 +34,6 @@ RUN cd /usr/local/src && \
     wget http://llvm.org/releases/3.4/llvm-3.4.src.tar.gz && \
     tar zxvf llvm-3.4.src.tar.gz && \
     cd llvm-3.4 && \
-    ./configure --enable-optimized && \
+    ./configure --enable-optimized --enable-shared && \
     REQUIRES_RTTI=1 make install
 
