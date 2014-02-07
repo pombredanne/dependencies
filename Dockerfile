@@ -21,7 +21,7 @@ RUN cd /usr/local/src && \
 
 ENV PATH $PATH:/usr/local/go/bin
 
-# LMDB 0.9.9
+# LMDB 0.9.11
 RUN cd /usr/local/src && \
     wget https://github.com/skydb/dependencies/raw/unstable/lmdb.tar.gz && \
     tar zxvf lmdb.tar.gz && \
